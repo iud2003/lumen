@@ -1,0 +1,1 @@
+{"name":"lumen-live","main":"dist/server/index.js","compatibility_date":"2026-10-01","d1_databases":[{"binding":"DB","database_name":"lumen-local","database_id":"local","migrations_dir":"drizzle"}],"r2_buckets":[{"binding":"BUCKET","bucket_name":"lumen-media"}]}

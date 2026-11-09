@@ -1,0 +1,12 @@
+dist/
+site.tar.gz
+
+build/
+worker/generated.js
+.wrangler/
+.dev.vars
+
+node_modules/
+.browser-profile/
+qa-output/
+outputs/
