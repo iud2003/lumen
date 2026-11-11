@@ -11,3 +11,5 @@ See [SETUP.md](SETUP.md) for deployment, local development, controls, limitation
 - `scripts/browser-qa.mjs`: end-to-end Edge test including fullscreen and offline video
 
 Build: `npm ci` then `npm run build`.
+
+Windows desktop application: see [DESKTOP.md](DESKTOP.md) for installation, local storage, and executable builds.

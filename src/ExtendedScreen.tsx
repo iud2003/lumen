@@ -12,6 +12,7 @@ export function ExtendedScreen({showId,onError}:{showId:string;onError:(message:
   let surface:HTMLDivElement|null=null;
   let cleanup:()=>void=()=>{};
   try{
+   if(window.lumenDesktop){await window.lumenDesktop.openOutput(showId);return}
    if(!(window as any).getScreenDetails)throw new Error('Use Chrome or Edge to open output on your extended screen.');
    const details=await (window as any).getScreenDetails();
    const current=details.currentScreen;

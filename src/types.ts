@@ -1,7 +1,11 @@
 export type Asset={id:string;name:string;kind:'video'|'image';url:string;size?:number};
-export type Layer={id:string;name:string;clip:string|null;slots:(string|null)[];blackout?:boolean;opacity:number;x:number;y:number;scale:number;fit:'contain'|'cover';loop:boolean;muted:boolean;volume:number;paused:boolean;restart:number};
-export type Composition={layers:Layer[];blackout:boolean;width:number;height:number;fade:number};
-export type ShowState={assets:Asset[];cue:Composition;live:Composition;take:number};
+export type Layer={id:string;name:string;clip:string|null;slots:(string|null)[];blackout?:boolean;opacity:number;x:number;y:number;scale:number;fit:'contain'|'cover';loop:boolean;muted:boolean;volume:number;paused:boolean;restart:number;brightness?:number;contrast?:number;saturation?:number;rotation?:number;blend?:'normal'|'screen'|'multiply'|'lighten'};
+export type Rect={x:number;y:number;width:number;height:number};
+export type Slice={id:string;name:string;enabled:boolean;input:Rect;output:Rect;rotation:number;flipX:boolean;flipY:boolean};
+export type Mapping={enabled:boolean;testPattern:boolean;slices:Slice[]};
+export type Composition={layers:Layer[];blackout:boolean;width:number;height:number;fade:number;testCard?:boolean;mapping?:Mapping};
+export type Column={id:string;name:string;color:'slate'|'violet'|'cyan'|'green'|'amber'|'rose'};
+export type ShowState={columns?:Column[];assets:Asset[];cue:Composition;live:Composition;take:number};
 export type Show={id:string;name:string;state:ShowState;version:number};
 export type Report={ready?:string[];downloading?:string[];errors?:Record<string,string>;live?:string[];take?:number;output?:boolean;at?:number};
 export type Player={id:string;heartbeat:number;report:Report};

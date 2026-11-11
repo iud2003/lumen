@@ -39,7 +39,7 @@ After edits run `npm run build`; Wrangler reloads the built Worker. The initial 
 
 ## Controls and semantics
 
-- The grid is bottom-to-top layer order; the inspector's arrows change the order. Each layer has one cued clip and four saved slots. Click another sponsor in the same row to replace that layer while preserving the background and logo.
+- The grid is bottom-to-top layer order; the inspector's arrows change the order. Each layer has one cued clip and eight saved slots. Click another sponsor in the same row to replace that layer while preserving the background and logo.
 - Play/pause, restart, loop, mute, volume, opacity, position, scale, fit/fill, and layer order are **staged in Preview**. Press Take Live to apply them. Preview audio is muted. The output can play audio after its initial local activation, subject to browser permissions.
 - **Blackout** immediately updates the desired blackout state and applies at the next player sync (normally within 1.5 seconds), independently of pending asset downloads. Blackout is visual; it does not mute audio. Blackout cannot reach an offline player.
 - Show creation and selection are under the show name or folder icon. Media references, clip layouts, transforms, resolution, and live state save to the cloud. Concurrent dashboard writes use version checks; conflicts refresh rather than overwriting a newer edit.
@@ -66,13 +66,8 @@ node scripts/browser-qa.mjs
 
 The browser QA script uses installed Microsoft Edge in headless mode on Windows and creates isolated temporary test data and a local browser profile. It exercises real video decoding, fullscreen activation, media upload, readiness, Take Live, offline looping, heartbeat timeout, reconnect, corrupt-video failure, and a mobile viewport. Screenshots go into ignored `qa-output/`. These simulated browser checks do **not** replace the physical two-laptop / two-network / HDMI test above.
 
-## Phased output roadmap
+## Output mapping in Studio 1.1
 
-The physical acceptance test is the gate before advanced output work:
+Rectangular LED slice mapping is implemented. Open Output Mapping to generate a wall layout, configure input crops and output regions, drag and resize slices, rotate and flip, and enable numbered test patterns. Presets export and import as JSON. Save to Preview, then Take Live to apply mapping or test-pattern changes to the audience output. Mapping is stored with each show and supports up to 32 slices on one processor canvas. It does not replace the LED processor's cabinet wiring configuration.
 
-1. Output cropping and four-corner projection mapping, with saved calibration and a test pattern.
-2. Multiple independently configured outputs, assignment, and health per output.
-3. Edge blending with overlap, gamma, and black-level calibration.
-4. MIDI mapping, device permissions, and saved controller profiles.
-
-These advanced features are not implemented or advertised as available in this first version.
+Remaining output work includes four-corner perspective mapping, multiple independently configured physical outputs, edge blending, and MIDI controller assignment. These remaining features need implementation and physical venue testing.
